@@ -1,0 +1,38 @@
+{
+  "name": "rivercdc",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel --filter=@rivercdc/web --filter=@rivercdc/api --filter=@rivercdc/producer --filter=@rivercdc/consumer",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test --filter=@rivercdc/api",
+    "test:e2e": "yarn workspace @rivercdc/web test:e2e",
+    "api:dev": "yarn workspace @rivercdc/api dev",
+    "api:start": "yarn workspace @rivercdc/api start",
+    "producer:dev": "yarn workspace @rivercdc/producer dev",
+    "consumer:dev": "yarn workspace @rivercdc/consumer dev",
+    "web:dev": "yarn workspace @rivercdc/web dev",
+    "web:build": "yarn workspace @rivercdc/web build",
+    "db:migrate": "yarn workspace @rivercdc/api migrate",
+    "db:seed": "yarn workspace @rivercdc/api seed",
+    "python:install": "yarn workspace @rivercdc/api python:install",
+    "infra:up": "docker compose -f infrastructure/docker-compose.yml up -d",
+    "infra:down": "docker compose -f infrastructure/docker-compose.yml down",
+    "infra:ps": "docker compose -f infrastructure/docker-compose.yml ps"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.8",
+    "turbo": "^2.5.4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "yarn@1.22.22"
+}

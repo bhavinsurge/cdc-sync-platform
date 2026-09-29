@@ -2,9 +2,9 @@
 
 ## Local (primary)
 
-1. `docker compose up -d`
-2. Backend migrations + seed
-3. Start producer, consumer, FastAPI, Next.js
+1. `yarn infra:up`
+2. `yarn python:install && yarn db:migrate && yarn db:seed`
+3. Start `yarn api:dev`, `yarn producer:dev`, `yarn consumer:dev`, `yarn web:dev` (or `yarn dev`)
 
 See root README for exact commands.
 
@@ -12,8 +12,9 @@ See root README for exact commands.
 
 | Component | Deploy target |
 | --- | --- |
-| Next.js UI | Vercel-ready / Node host |
-| FastAPI + workers | Any Python host / container |
+| Next.js UI (`apps/web`) | Vercel-ready / Node host |
+| FastAPI (`apps/api`) | Any Python host / container |
+| Producer / consumer | Separate process or container per runtime |
 | Postgres ×2 | Docker / managed PG with logical decoding on source |
 | Kafka | Docker KRaft / local broker |
 
@@ -28,4 +29,4 @@ No paid SaaS. For demos keep Compose on a single machine.
 
 ## Environment
 
-Copy `.env.example` → `.env` for backend and frontend.
+Copy `apps/api/.env.example` → `apps/api/.env` and `apps/web/.env.example` → `apps/web/.env.local`.

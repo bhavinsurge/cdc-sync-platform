@@ -1,0 +1,13 @@
+{
+  "name": "@rivercdc/producer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd ../api && .venv/bin/python -m app.cdc.producer",
+    "start": "cd ../api && .venv/bin/python -m app.cdc.producer",
+    "build": "echo 'Producer has no compile step'",
+    "lint": "echo 'ok'",
+    "typecheck": "echo 'ok'",
+    "test": "echo 'Producer covered by @rivercdc/api integration tests'"
+  }
+}

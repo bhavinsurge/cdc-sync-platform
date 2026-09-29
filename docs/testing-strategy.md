@@ -22,9 +22,10 @@
 ## Commands
 
 ```bash
-cd backend && pytest tests/unit -q
-cd backend && pytest tests/integration -q
-cd frontend && npm run test:e2e
+yarn test                                    # API unit + integration via turbo
+yarn workspace @rivercdc/api test            # pytest directly
+yarn test:e2e                                # Playwright (API + web)
+yarn build && yarn lint && yarn typecheck
 ```
 
 ## Coverage focus

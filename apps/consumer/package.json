@@ -1,0 +1,13 @@
+{
+  "name": "@rivercdc/consumer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd ../api && .venv/bin/python -m app.cdc.consumer",
+    "start": "cd ../api && .venv/bin/python -m app.cdc.consumer",
+    "build": "echo 'Consumer has no compile step'",
+    "lint": "echo 'ok'",
+    "typecheck": "echo 'ok'",
+    "test": "echo 'Consumer covered by @rivercdc/api integration tests'"
+  }
+}

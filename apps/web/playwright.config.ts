@@ -12,10 +12,20 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
-  webServer: {
-    command: "npm run start",
-    url: "http://localhost:3007",
-    reuseExistingServer: true,
-    timeout: 120000,
-  },
+  webServer: [
+    {
+      command: "yarn workspace @rivercdc/api start",
+      url: "http://127.0.0.1:8007/",
+      reuseExistingServer: true,
+      timeout: 120000,
+      cwd: "../..",
+    },
+    {
+      command: "yarn workspace @rivercdc/web start",
+      url: "http://localhost:3007",
+      reuseExistingServer: true,
+      timeout: 120000,
+      cwd: "../..",
+    },
+  ],
 });
